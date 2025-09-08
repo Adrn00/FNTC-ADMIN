@@ -7,7 +7,6 @@
         x:Class="FNTC.MainWindow"
         Title="FNTC">
 
-	<!-- Main Layout: 2 Rows (Header + Content), 2 Columns (Sidebar + Main) -->
 	<Grid RowDefinitions="60, *" ColumnDefinitions="300, *"
           Background="{DynamicResource ResourceKey=PrimaryBackground}">
 
@@ -18,9 +17,8 @@
                 Padding="15,0">
 			<Grid ColumnDefinitions="*, Auto, Auto" VerticalAlignment="Center">
 
-				<!-- Left: App Title -->
-				<TextBlock Classes="" Text="FNTC Dashboard" Foreground="White" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
-
+				<!-- FNTC Logo-->
+				<Image Source="avares://FNTC/Assets/Images/logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Width="72" Height="40" />
 				<!-- Right: Actions -->
 				<StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="15" VerticalAlignment="Center">
 					<!-- Notification Button -->
