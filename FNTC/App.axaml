@@ -1,0 +1,31 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FNTC.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+		<StyleInclude Source="avares://FNTC/Styles/Styles1.axaml" />
+	</Application.Styles>
+
+	<Application.Resources>
+		<!--border-->
+		<SolidColorBrush x:Key="PrimaryForeground">#6A6767</SolidColorBrush>
+		
+		<!--button normal-->
+		<SolidColorBrush x:Key="PrimaryBackgroundBT">#F1F1F1</SolidColorBrush>
+		<SolidColorBrush x:Key="PrimaryBackground">#FFFFFF</SolidColorBrush>
+		
+		<!--button hover-->
+		<SolidColorBrush x:Key="PrimaryHoverBackground">#35C1F1</SolidColorBrush>
+		<SolidColorBrush x:Key="PrimaryHoverForeground">#000000</SolidColorBrush>
+
+		<!--font-->
+		<FontFamily x:Key="PrimaryFontFamily">Inter</FontFamily>
+
+		<!--icons-->
+		<FontFamily x:Key="PhosphorFill">Assets/Fonts/Phosphor-Fill.ttf#Phosphor-Fill</FontFamily>
+		<FontFamily x:Key="Phosphor">Assets/Fonts/Phosphor.ttf#Phosphor</FontFamily>
+	</Application.Resources>
+</Application>

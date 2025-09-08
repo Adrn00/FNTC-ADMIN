@@ -1,0 +1,56 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Design.PreviewWith>
+		<Button HorizontalAlignment="Stretch">
+			<StackPanel Orientation="Horizontal">
+				<Label FontFamily="{DynamicResource ResourceKey=Phosphor}" Classes="icon" Content="&#xe2c2;"></Label>
+				<Label Content="Dashboard"></Label>
+			</StackPanel>
+		</Button>
+		
+	</Design.PreviewWith>
+
+	<!--  Styles -->
+	<!--Border-->
+	<Style Selector="Border.Sidebar">
+		<Setter Property="Grid.Column" Value="0"> </Setter>
+		<Setter Property="Margin" Value="15,10,10,10"> </Setter>
+		<Setter Property="CornerRadius" Value="20"> </Setter>
+		<Setter Property="Background" Value="#F1F1F1"> </Setter>
+		<Setter Property="VerticalAlignment" Value="Stretch"> </Setter>
+		<Setter Property="HorizontalAlignment" Value="Stretch"> </Setter>
+	</Style>
+
+	<!-- Default icon style -->
+	<Style Selector="Label.icon">
+		<Setter Property="FontFamily" Value="{DynamicResource Phosphor}" />
+		<Setter Property="FontSize" Value="20" />
+	</Style>
+
+	<!-- icon when button is hovered -->
+	<Style Selector="Button:pointerover Label.icon">
+		<Setter Property="FontFamily" Value="{DynamicResource PhosphorFill}" />
+	</Style>
+
+	<!-- Font text global -->
+	<Style Selector="Window">
+		<Setter Property="FontFamily" Value="{DynamicResource PrimaryFontFamily}" />
+	</Style>
+
+	<!--Button -->
+	<Style Selector="Button.SidebarBT">
+		<Setter Property="FontSize" Value="17" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+		<Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBT}" />
+		<Setter Property="BorderThickness" Value="10"></Setter>
+	</Style>
+
+	<!-- background when button is hovered -->
+	<Style Selector="Button:pointerover /template/ ContentPresenter">
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}" />
+		<Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}" />
+		
+	</Style>
+
+</Styles>
