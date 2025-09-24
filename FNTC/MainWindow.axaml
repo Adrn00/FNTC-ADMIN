@@ -7,86 +7,58 @@
         x:Class="FNTC.MainWindow"
         Title="FNTC">
 
-	<Grid RowDefinitions="60, *" ColumnDefinitions="300, *"
-          Background="{DynamicResource ResourceKey=PrimaryBackground}">
-
-		<!-- HEADER -->
-		<Border Grid.Row="0" Grid.ColumnSpan="2"
-                Background="#2C3E50" Height="60"
-                VerticalAlignment="Top"
-                Padding="15,0">
-			<Grid ColumnDefinitions="*, Auto, Auto" VerticalAlignment="Center">
-
-				<!-- FNTC Logo-->
-				<Image Source="avares://FNTC/Assets/Images/logo.png" VerticalAlignment="Center" HorizontalAlignment="Left" Width="72" Height="40" />
-				<!-- Right: Actions -->
-				<StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="15" VerticalAlignment="Center">
-					<!-- Notification Button -->
-					<Button Background="Transparent" BorderThickness="0" ToolTip.Tip="Notifications">
-						<Label Classes="icon" Content="&#xe7f4;" Foreground="White" FontSize="18"/>
-					</Button>
-
-					<!-- User Profile Button -->
-					<Button Background="Transparent" BorderThickness="0" ToolTip.Tip="Profile">
-						<Label Classes="icon" Content="&#xe77b;" Foreground="White" FontSize="18"/>
-					</Button>
-				</StackPanel>
-			</Grid>
-		</Border>
+	<!-- Main Grid: Sidebar + Content -->
+	<Grid Classes="BGP" ColumnDefinitions="300, *" RowDefinitions="Auto, *">
 
 		<!-- SIDEBAR -->
-		<Border Classes="Sidebar" Grid.Row="1" Grid.Column="0" >
+		<Border Classes="Sidebar" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
 			<Grid RowDefinitions="*, Auto">
+
+				<!-- SIDEBAR CONTENT -->
 				<StackPanel Grid.Row="0" Spacing="40">
-
-					<!-- MENU -->
 					<StackPanel Spacing="15">
-						<Label Padding="25,15,0,0" Foreground="#6A6767" FontSize="16"> MENU</Label>
+						<Image Source="avares://FNTC/Assets/Images/logo.png"
+                               Width="170" Height="141" VerticalAlignment="Center"/>
 
 						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
 							<StackPanel Orientation="Horizontal">
-								<Label Classes="icon" Content="&#xeb54;"/>
-								<Label Content="Dashboard"/>
+								<Label Classes="icon" Content="&#xe2f2;" />
+								<Label Content="Dashboard" />
 							</StackPanel>
 						</Button>
 
 						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
 							<StackPanel Orientation="Horizontal">
-								<Label Classes="icon" Content="&#xe34e;"/>
-								<Label Content="Subscription Management"/>
+								<Label Classes="icon" Content="&#xe34c;" />
+								<Label Content="Subscription Management" />
 							</StackPanel>
 						</Button>
 
 						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
 							<StackPanel Orientation="Horizontal">
-								<Label Classes="icon" Content="&#xee42;"/>
-								<Label Content="Billing and Invoice"/>
+								<Label Classes="icon" Content="&#xee42;" />
+								<Label Content="Billing and Invoice" />
 							</StackPanel>
 						</Button>
 
 						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
 							<StackPanel Orientation="Horizontal">
-								<Label Classes="icon" Content="&#xe584;"/>
-								<Label Content="Support and Communication"/>
-							</StackPanel>
-						</Button>
-					</StackPanel>
-
-					<!-- GENERAL -->
-					<StackPanel Spacing="15">
-						<Label Padding="20,20,0,0" Foreground="#6A6767" FontSize="16"> GENERAL</Label>
-
-						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
-							<StackPanel Orientation="Horizontal">
-								<Label Classes="icon" Content="&#xe270;"/>
-								<Label Content="Settings"/>
+								<Label Classes="icon" Content="&#xe3e8;" />
+								<Label Content="Support and Communication" />
 							</StackPanel>
 						</Button>
 
 						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
 							<StackPanel Orientation="Horizontal">
-								<Label Classes="icon" Content="&#xe68e;"/>
-								<Label Content="Job Orders"/>
+								<Label Classes="icon" Content="&#xe270;" />
+								<Label Content="Settings" />
+							</StackPanel>
+						</Button>
+
+						<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
+							<StackPanel Orientation="Horizontal">
+								<Label Classes="icon" Content="&#xe68e;" />
+								<Label Content="Job Orders" />
 							</StackPanel>
 						</Button>
 					</StackPanel>
@@ -95,15 +67,62 @@
 				<!-- LOGOUT -->
 				<Button Classes="SidebarBT" Grid.Row="1" Margin="15,0,0,15">
 					<StackPanel Orientation="Horizontal">
-						<Label Classes="icon" Content="&#xe42a;"/>
-						<Label Content="Log Out"/>
+						<Label Classes="icon" Content="&#xe42a;" />
+						<Label Content="Log Out" />
 					</StackPanel>
 				</Button>
 			</Grid>
 		</Border>
 
+		<!-- HEADER -->
+		<Border Grid.Row="0" Grid.Column="1" Background="#FFFFFF" Padding="15" CornerRadius="0,0,8,8" BoxShadow="0 4 12 0 #80000000">
+
+			<Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+
+				<!-- Page Title -->
+				<Image Source="avares://FNTC/Assets/Images/logo1.png" Width="362" Height="27" HorizontalAlignment="Left"/> 
+				
+				<!-- Right Section (Bell + Profile) -->
+				<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="20" VerticalAlignment="Center">
+
+				<!-- Notification Bell -->
+				<Label Classes="icon" Content="&#xe5e8;" VerticalAlignment="Center" Foreground="White" FontSize="20" Cursor="Hand"/>
+
+				<!-- Profile Section -->
+					<StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+
+						<!-- Profile Circle -->
+						<Border Width="40" Height="40"
+								Background="White"
+								CornerRadius="20"
+								VerticalAlignment="Center">
+							<TextBlock Text="A"
+									   HorizontalAlignment="Center"
+									   VerticalAlignment="Center"
+									   FontWeight="Bold"
+									   Foreground="#223A5F"/>
+						</Border>
+
+						<!-- Profile Info -->
+						<StackPanel>
+							<TextBlock Text="Admin"
+									   Foreground="White"
+									   FontWeight="Bold"/>
+							<TextBlock Text="John Doe"
+									   Foreground="White"
+									   FontSize="12"/>
+						</StackPanel>
+					</StackPanel>
+
+				</StackPanel>
+			</Grid>
+
+		</Border>
 		<!-- MAIN CONTENT -->
-		<Border Grid.Row="1" Grid.Column="1" Background="White" Margin="10" CornerRadius="8">
+		<Border Grid.Row="1" Grid.Column="1"
+                Background="White"
+                Margin="10"
+                CornerRadius="8">
 			<TextBlock Text="Main Content Area"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"

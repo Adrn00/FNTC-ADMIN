@@ -12,12 +12,14 @@
 	</Design.PreviewWith>
 
 	<!--  Styles -->
-	<!--Border-->
+	<!--BGP-->
+	<Style Selector="Grid.BGP">
+		<Setter Property="Background" Value="White"> </Setter>
+	</Style>	
+	<!--SIDEBAR-->
 	<Style Selector="Border.Sidebar">
-		<Setter Property="Grid.Column" Value="0"> </Setter>
-		<Setter Property="Margin" Value="15,10,10,10"> </Setter>
-		<Setter Property="CornerRadius" Value="20"> </Setter>
-		<Setter Property="Background" Value="#F1F1F1"> </Setter>
+		<Setter Property="Grid.Column" Value="0"> </Setter>	
+		<Setter Property="Background" Value="#223A5F"> </Setter>
 		<Setter Property="VerticalAlignment" Value="Stretch"> </Setter>
 		<Setter Property="HorizontalAlignment" Value="Stretch"> </Setter>
 	</Style>
@@ -41,15 +43,14 @@
 	<!--Button -->
 	<Style Selector="Button.SidebarBT">
 		<Setter Property="FontSize" Value="17" />
-		<Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBT}"/>
 		<Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBT}" />
-		<Setter Property="BorderThickness" Value="10"></Setter>
 	</Style>
 
 	<!-- background when button is hovered -->
 	<Style Selector="Button:pointerover /template/ ContentPresenter">
-		<Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForeground}" />
-		<Setter Property="Background" Value="{DynamicResource PrimaryHoverBackground}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForegroundBT}" />
+		<Setter Property="Background" Value="{DynamicResource PrimaryHoverBackgroundBT}" />
 		
 	</Style>
 

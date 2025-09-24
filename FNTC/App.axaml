@@ -10,16 +10,16 @@
 	</Application.Styles>
 
 	<Application.Resources>
-		<!--border-->
-		<SolidColorBrush x:Key="PrimaryForeground">#6A6767</SolidColorBrush>
+		
+		
 		
 		<!--button normal-->
-		<SolidColorBrush x:Key="PrimaryBackgroundBT">#F1F1F1</SolidColorBrush>
-		<SolidColorBrush x:Key="PrimaryBackground">#FFFFFF</SolidColorBrush>
+		<SolidColorBrush x:Key="PrimaryBackgroundBT">#223A5F</SolidColorBrush>
+		<SolidColorBrush x:Key="PrimaryForegroundBT">#FFFFFF</SolidColorBrush>
 		
 		<!--button hover-->
-		<SolidColorBrush x:Key="PrimaryHoverBackground">#35C1F1</SolidColorBrush>
-		<SolidColorBrush x:Key="PrimaryHoverForeground">#000000</SolidColorBrush>
+		<SolidColorBrush x:Key="PrimaryHoverBackgroundBT" Color="#FFFFFF" Opacity="0.21"/>
+		<SolidColorBrush x:Key="PrimaryHoverForegroundBT" Color="#FFFFFF"/>
 
 		<!--font-->
 		<FontFamily x:Key="PrimaryFontFamily">Inter</FontFamily>
