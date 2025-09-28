@@ -6,7 +6,7 @@
 			<!-- Main Grid: Sidebar + Content -->
 			<Grid Classes="BGP" ColumnDefinitions="300, *" RowDefinitions="Auto, *">
 
-				<!--SIDEBAR BORDER-->
+				<!--SIDEBAR -->
 				<Border Classes="Sidebar" >
 					<!--SIDEBAR GRID-->
 					<Grid RowDefinitions="*, Auto" Background="#F2F2F2">
@@ -81,18 +81,19 @@
 					</Grid>
 				</Border>
 
-				<!-- HEADER BORDER-->
-				<Border Grid.Row="0" Grid.Column="1" Classes="Header"
-						Background="#2A595F"
-						Padding="15">
-
+				<!-- HEADER BAR-->	
+				<Border  Classes="Headerbar">
 					<Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
 
-						<!-- Page Title / Logo -->
-						<TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="32" FontFamily="Roboto" FontWeight="Bold" Margin="20,20,20,20" Foreground="White">DASHBOARD </TextBlock>
+						<!-- DASHBOARD PANEL -->
+						<StackPanel Classes="DashboardPanel">
+							<!-- DASHBOARD TEXT-->	
+							<TextBlock Text="DASHBOARD" Classes="DBheader"/>
 
-						<!-- Right Section (Bell + Profile) -->
-						<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="20" VerticalAlignment="Center">
+							<TextBlock Text="Here’s a quick overview of Active subscriptions." Classes="DBsubheader"/>
+						</StackPanel>
+						<!-- NOTIFICATION AND PROFILE PANEL -->
+						<StackPanel Classes="NotificationProfilePanel">
 
 							<!-- Notification Bell -->
 							<Label Classes="icon" Content="&#xe5e8;"
@@ -255,6 +256,43 @@
 		<Setter Property="CornerRadius" Value="10"/>
 	</Style>
 
-	<!--HEADER-->
-	
+	<!--HEADER BAR-->
+	<Style Selector="Border.Headerbar">
+		<Setter Property="Grid.Row" Value="0"></Setter>
+		<Setter Property="Grid.Column" Value="1"></Setter>
+		<Setter Property="Background" Value="#2A595F"></Setter>
+		<Setter Property="Padding" Value="25"></Setter>
+		
+	</Style>
+
+	<!-- DASHBOARD PANEL -->
+	<Style Selector="StackPanel.DashboardPanel">
+		<Setter Property="Orientation" Value="Vertical"/>
+		<Setter Property="HorizontalAlignment" Value="Left"/>
+		<Setter Property="Margin" Value="10,20,10,10"/>
+	</Style>
+
+	<!-- DASHBOARD TEXTS-->
+	<Style Selector="TextBlock.DBheader">
+		<Setter Property="FontSize" Value="32"/>
+		<Setter Property="FontFamily" Value="Roboto"/>
+		<Setter Property="FontWeight" Value="Bold"/>
+		<Setter Property="Foreground" Value="White"/>
+	</Style>
+	<Style Selector="TextBlock.DBsubheader">
+		<Setter Property="FontSize" Value="15"/>
+		<Setter Property="FontFamily" Value="Roboto"/>
+		<Setter Property="FontWeight" Value="Regular"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Margin" Value="0,10,0,0"/>
+	</Style>
+
+	<!-- NOTIFICATION AND PROFILE PANEL -->
+	<Style Selector="StackPanel.NotificationProfilePanel">
+		<Setter Property="Grid.Column" Value="1"/>
+		<Setter Property="Orientation" Value="Horizontal"/>
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="Spacing" Value="20"/>
+	</Style>
+
 </Styles>
