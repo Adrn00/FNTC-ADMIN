@@ -96,11 +96,8 @@
 						<StackPanel Classes="NotificationProfilePanel">
 
 							<!-- Notification Bell -->
-							<Label Classes="icon" Content="&#xe5e8;"
-								   VerticalAlignment="Center"
-								   Foreground="Black"
-								   FontSize="20"
-								   Cursor="Hand"/>
+							<Label Classes="notificationbell"
+								   Content="&#xe5e8;"/>
 
 							<!-- Profile Section -->
 							<StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
@@ -293,6 +290,14 @@
 		<Setter Property="Orientation" Value="Horizontal"/>
 		<Setter Property="HorizontalAlignment" Value="Center"/>
 		<Setter Property="Spacing" Value="20"/>
+	</Style>
+
+	<!-- Notification Bell -->
+	<Style Selector="Label.notificationbell">
+		<Setter Property="FontFamily" Value="{DynamicResource PhosphorFill}"/>
+		<Setter	Property="VerticalAlignment" Value="Center"/>
+		<Setter	Property="Foreground" Value="Black"/>
+		<Setter	Property="FontSize" Value="30"/>
 	</Style>
 
 </Styles>
