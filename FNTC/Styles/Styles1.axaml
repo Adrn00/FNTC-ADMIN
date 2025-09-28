@@ -2,56 +2,259 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<Design.PreviewWith>
-		<Button HorizontalAlignment="Stretch">
-			<StackPanel Orientation="Horizontal">
-				<Label FontFamily="{DynamicResource ResourceKey=Phosphor}" Classes="icon" Content="&#xe2c2;"></Label>
-				<Label Content="Dashboard"></Label>
-			</StackPanel>
-		</Button>
-		
+		<Grid Width="1920" Height="1080" >
+			<!-- Main Grid: Sidebar + Content -->
+			<Grid Classes="BGP" ColumnDefinitions="300, *" RowDefinitions="Auto, *">
+
+				<!--SIDEBAR BORDER-->
+				<Border Classes="Sidebar" >
+					<!--SIDEBAR GRID-->
+					<Grid RowDefinitions="*, Auto" Background="#F2F2F2">
+						<!--SIDEBAR CONTENT-->
+						<StackPanel Classes="SidebarContent" >
+							<!--SIDEBAR LOGO-->
+							<Image Source="avares://FNTC/Assets/Images/logo.png" Classes="Logo"/>
+
+							<!-- MAIN MENU-->
+							<StackPanel Spacing="20">
+								<TextBlock Classes="sidebartext" Text="MAIN MENU" />
+
+								<Button Classes="SidebarBT">
+									<StackPanel Orientation="Horizontal">
+										<Label Classes="icon" Content="&#xe464;"/>
+										<Label Classes="fontbt"	Content="Dashboard"/>
+									</StackPanel>
+								</Button>
+
+								<Button Classes="SidebarBT" >
+									<StackPanel Orientation="Horizontal">
+										<Label Classes="icon" Content="&#xe2f8;"/>
+										<Label Classes="fontbt"	Content="Subscription Management"/>
+									</StackPanel>
+								</Button>
+
+								<Button Classes="SidebarBT">
+									<StackPanel Orientation="Horizontal">
+										<Label Classes="icon" Content="&#xee42;"/>
+										<Label Classes="fontbt"	Content="Billing and Invoice"/>
+									</StackPanel>
+								</Button>
+
+								<Button Classes="SidebarBT" >
+									<StackPanel Orientation="Horizontal">
+										<Label Classes="icon" Content="&#xe68e;"/>
+										<Label Classes="fontbt"	Content="Job Order"/>
+									</StackPanel>
+								</Button>
+							</StackPanel>
+
+							<!-- Divider line -->
+							<Border Height="1" Background="#CCC" Margin="0,10" Width="203"/>
+
+							<!-- GENERAL-->
+							<StackPanel Spacing="20">
+								<TextBlock Classes="sidebartext" Text="GENERAL" />
+								<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
+									<StackPanel Orientation="Horizontal">
+										<Label Classes="icon" Content="&#xe3e8;"/>
+										<Label Classes="fontbt"	Content="Support Service"/>
+									</StackPanel>
+								</Button>
+
+								<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
+									<StackPanel Orientation="Horizontal">
+										<Label Classes="icon" Content="&#xe270;"/>
+										<Label Classes="fontbt"	Content="Settings"/>
+									</StackPanel>
+								</Button>
+							</StackPanel>
+						</StackPanel>
+
+
+						<!-- LOGOUT -->
+						<Button Classes="SidebarBT" Grid.Row="1" Margin="15,0,0,15">
+							<StackPanel Orientation="Horizontal">
+								<Label Classes="icon" Content="&#xe42a;"/>
+								<Label Classes="fontbt"	Content="Log Out"/>
+							</StackPanel>
+						</Button>
+					</Grid>
+				</Border>
+
+				<!-- HEADER BORDER-->
+				<Border Grid.Row="0" Grid.Column="1" Classes="Header"
+						Background="#2A595F"
+						Padding="15">
+
+					<Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+
+						<!-- Page Title / Logo -->
+						<TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="32" FontFamily="Roboto" FontWeight="Bold" Margin="20,20,20,20" Foreground="White">DASHBOARD </TextBlock>
+
+						<!-- Right Section (Bell + Profile) -->
+						<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="20" VerticalAlignment="Center">
+
+							<!-- Notification Bell -->
+							<Label Classes="icon" Content="&#xe5e8;"
+								   VerticalAlignment="Center"
+								   Foreground="Black"
+								   FontSize="20"
+								   Cursor="Hand"/>
+
+							<!-- Profile Section -->
+							<StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+
+								<!-- Profile Circle -->
+								<Border Width="40" Height="40"
+										Background="White"
+										CornerRadius="20"
+										VerticalAlignment="Center">
+									<TextBlock Text="A"
+											   HorizontalAlignment="Center"
+											   VerticalAlignment="Center"
+											   FontWeight="Bold"
+											   Foreground="Black"/>
+								</Border>
+
+								<!-- Profile Info -->
+								<StackPanel>
+									<TextBlock Text="Admin"
+											   Foreground="White"
+											   FontWeight="Bold"/>
+									<TextBlock Text="Lawrence Adrian De Guzman"
+											   Foreground="White"
+											   FontSize="12"/>
+								</StackPanel>
+							</StackPanel>
+
+						</StackPanel>
+					</Grid>
+
+				</Border>
+				<!-- MAIN CONTENT AREA -->
+				<Grid Grid.Row="1" Grid.Column="1" Margin="20">
+					<!-- Horizontal StackPanel for 3 grids -->
+					<StackPanel	VerticalAlignment="Top"	HorizontalAlignment="Left"	Spacing="10">
+						
+						<!-- Total Subscribers -->
+						<Border Width="281" Height="135"	Background="#ECF9FB"	CornerRadius="10">
+							<Grid>
+								<TextBlock Text="Total Subscribers" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+							</Grid>
+						</Border>
+
+						<!-- New Subscribers this Month -->
+						<Border Width="281" Height="135"
+								Background="#ECF9FB"
+								CornerRadius="10">
+							<Grid>
+								<TextBlock Text="New Subscribers"
+										   VerticalAlignment="Center"
+										   HorizontalAlignment="Center"
+										   FontWeight="Bold"/>
+							</Grid>
+						</Border>
+
+						<!-- Overdue Payments -->
+						<Border Width="281" Height="135"
+								Background="#ECF9FB"
+								CornerRadius="10">
+							<Grid>
+								<TextBlock Text="Overdue Payments"
+										   VerticalAlignment="Center"
+										   HorizontalAlignment="Center"
+										   FontWeight="Bold"/>
+							</Grid>
+						</Border>
+
+					</StackPanel>
+				</Grid>
+
+
+			</Grid>
+
+			
+		</Grid>	
 	</Design.PreviewWith>
 
 	<!--  Styles -->
 	<!--BGP-->
 	<Style Selector="Grid.BGP">
-		<Setter Property="Background" Value="White"> </Setter>
-	</Style>	
-	<!--SIDEBAR-->
+		<Setter Property="Background" Value="#2A595F"></Setter>
+	</Style>
+	
+	<!--SIDEBAR BORDER-->
 	<Style Selector="Border.Sidebar">
-		<Setter Property="Grid.Column" Value="0"> </Setter>	
-		<Setter Property="Background" Value="#223A5F"> </Setter>
+		<Setter Property="Grid.Column" Value="0"> </Setter>
+		<Setter Property="Grid.Row" Value="0"></Setter>
+		<Setter Property="Grid.RowSpan" Value="2"></Setter>
 		<Setter Property="VerticalAlignment" Value="Stretch"> </Setter>
 		<Setter Property="HorizontalAlignment" Value="Stretch"> </Setter>
+		<Setter	Property="CornerRadius" Value="10"></Setter>
 	</Style>
 
-	<!-- Default icon style -->
+	<!--SIDEBAR CONTENT-->
+	<Style Selector="StackPanel.SidebarContent">
+		<Setter Property="Spacing" Value="60"></Setter>
+		<Setter Property="Background" Value="#F2F2F2"> </Setter>
+	</Style>
+
+	<!--SIDEBAR LOGO-->
+	<Style Selector="Image.Logo">
+		<Setter	Property="Width" Value="217"></Setter>
+		<Setter Property="Height" Value="102"></Setter>
+		<Setter Property="Margin" Value="15,50,15,15"></Setter>
+		
+	</Style>
+	
+	<!--SIDEBAR TEXT-->
+	<Style Selector="TextBlock.sidebartext">
+		<Setter Property="FontFamily" Value="{DynamicResource FontFamilyBt}"/>
+		<Setter Property="Foreground" Value="#AFB7BC"/>
+		<Setter Property="FontSize" Value="13"/>
+		<Setter Property="FontWeight" Value="Medium"/>
+		<Setter Property="Margin" Value="50,0,0,0"/>
+	</Style>
+
+	<!-- FONT BUTTON-->
+	<Style Selector="Label.fontbt">
+		<Setter Property="FontFamily" Value="{DynamicResource FontFamilyBt}"/>
+		<Setter Property="FontSize" Value="15"/>
+	    <Setter Property="FontWeight" Value="SemiBold"/>
+	</Style>
+	<!-- ICON BUTTON-->
 	<Style Selector="Label.icon">
 		<Setter Property="FontFamily" Value="{DynamicResource Phosphor}" />
-		<Setter Property="FontSize" Value="20" />
+		<Setter Property="FontSize" Value="18"></Setter>
+		<Setter Property="Foreground" Value="{DynamicResource iconfontcolor}"/>
+		<Setter Property="Margin" Value="0,2,0,0"/>
 	</Style>
-
-	<!-- icon when button is hovered -->
+	
+	<!-- ICON BUTTON HOVERED-->
 	<Style Selector="Button:pointerover Label.icon">
 		<Setter Property="FontFamily" Value="{DynamicResource PhosphorFill}" />
+		<Setter Property="Foreground" Value="{DynamicResource iconfontcolorhover}"/>
 	</Style>
 
-	<!-- Font text global -->
-	<Style Selector="Window">
-		<Setter Property="FontFamily" Value="{DynamicResource PrimaryFontFamily}" />
-	</Style>
-
-	<!--Button -->
+	<!--SIDEBAR BUTTONS-->
 	<Style Selector="Button.SidebarBT">
-		<Setter Property="FontSize" Value="17" />
-		<Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBT}"/>
-		<Setter Property="Background" Value="{DynamicResource PrimaryBackgroundBT}" />
-	</Style>
-
-	<!-- background when button is hovered -->
-	<Style Selector="Button:pointerover /template/ ContentPresenter">
-		<Setter Property="Foreground" Value="{DynamicResource PrimaryHoverForegroundBT}" />
-		<Setter Property="Background" Value="{DynamicResource PrimaryHoverBackgroundBT}" />
+		<Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+		<Setter Property="Width" Value="223"></Setter>
+		<Setter Property="Height" Value="43"></Setter>
+		<Setter Property="Background" Value="{DynamicResource colorbt}"></Setter>
+		<Setter Property="Foreground" Value="{DynamicResource iconfontcolor}"/>
 		
 	</Style>
 
+	<!--SIDEBAR BUTTONS HOVERED-->
+	<Style Selector="Button:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="{DynamicResource colotbthover}"/>
+		<Setter Property="Foreground" Value="{DynamicResource iconfontcolorhover}"/>
+		<Setter Property="BorderBrush" Value="#006D7A" />
+		<Setter Property="BorderThickness" Value="1"/>
+		<Setter Property="CornerRadius" Value="10"/>
+	</Style>
+
+	<!--HEADER-->
+	
 </Styles>

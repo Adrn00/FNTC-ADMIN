@@ -13,16 +13,20 @@
 		
 		
 		
-		<!--button normal-->
-		<SolidColorBrush x:Key="PrimaryBackgroundBT">#223A5F</SolidColorBrush>
-		<SolidColorBrush x:Key="PrimaryForegroundBT">#FFFFFF</SolidColorBrush>
+		<!--button normal bg color-->
+		<SolidColorBrush x:Key="colorbt" Color="#F2F2F2" />
 		
-		<!--button hover-->
-		<SolidColorBrush x:Key="PrimaryHoverBackgroundBT" Color="#FFFFFF" Opacity="0.21"/>
-		<SolidColorBrush x:Key="PrimaryHoverForegroundBT" Color="#FFFFFF"/>
+		<!--button hover bg color-->
+		<SolidColorBrush x:Key="colotbthover" Color="#FFFFFF"/>
+		
+		<!--icons and fonts color bt-->
+		<SolidColorBrush x:Key="iconfontcolor" Color="#A7A6AC" />
+			
+		<!--icons and fonts color bt hover-->
+		<SolidColorBrush x:Key="iconfontcolorhover" Color="#00ABB9"/>
 
 		<!--font-->
-		<FontFamily x:Key="PrimaryFontFamily">Inter</FontFamily>
+		<FontFamily x:Key="FontFamilyBt">Inter</FontFamily>
 
 		<!--icons-->
 		<FontFamily x:Key="PhosphorFill">Assets/Fonts/Phosphor-Fill.ttf#Phosphor-Fill</FontFamily>
