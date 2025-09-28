@@ -10,7 +10,7 @@
 	<!-- Main Grid: Sidebar + Content -->
 	<Grid Classes="BGP" ColumnDefinitions="300, *" RowDefinitions="Auto, *">
 
-		<!--SIDEBAR BORDER-->
+		<!--SIDEBAR -->
 		<Border Classes="Sidebar" >
 			<!--SIDEBAR GRID-->
 			<Grid RowDefinitions="*, Auto" Background="#F2F2F2">
@@ -85,49 +85,47 @@
 			</Grid>
 		</Border>
 
-		<!-- HEADER -->
-		<Border Grid.Row="0" Grid.Column="1"
-                Background="#FFFFFF"
-                Padding="15">
-
+		<!-- HEADER BAR-->
+		<Border  Classes="Headerbar">
 			<Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
 
-				<!-- Page Title / Logo -->
-				<TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="32" FontFamily="Roboto" FontWeight="Bold" Margin="20,20,20,20" >DASHBOARD</TextBlock>
+				<!-- DASHBOARD PANEL -->
+				<StackPanel Classes="DashboardPanel">
+					<!-- DASHBOARD TEXT-->
+					<TextBlock Text="DASHBOARD" Classes="DBheader"/>
 
-				<!-- Right Section (Bell + Profile) -->
-				<StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="20" VerticalAlignment="Center">
+					<TextBlock Text="Here’s a quick overview of Active subscriptions." Classes="DBsubheader"/>
+				</StackPanel>
+				<!-- NOTIFICATION AND PROFILE PANEL -->
+				<StackPanel Classes="NotificationProfilePanel">
 
 					<!-- Notification Bell -->
-					<Label Classes="icon" Content="&#xe5e8;"
-                           VerticalAlignment="Center"
-                           Foreground="Black"
-                           FontSize="20"
-                           Cursor="Hand"/>
+					<Label Classes="notificationbell"
+						   Content="&#xe5e8;"/>
 
 					<!-- Profile Section -->
 					<StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
 
 						<!-- Profile Circle -->
 						<Border Width="40" Height="40"
-                                Background="Gray"
-                                CornerRadius="20"
-                                VerticalAlignment="Center">
+								Background="White"
+								CornerRadius="20"
+								VerticalAlignment="Center">
 							<TextBlock Text="A"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       FontWeight="Bold"
-                                       Foreground="White"/>
+									   HorizontalAlignment="Center"
+									   VerticalAlignment="Center"
+									   FontWeight="Bold"
+									   Foreground="Black"/>
 						</Border>
 
 						<!-- Profile Info -->
 						<StackPanel>
 							<TextBlock Text="Admin"
-                                       Foreground="Black"
-                                       FontWeight="Bold"/>
+									   Foreground="White"
+									   FontWeight="Bold"/>
 							<TextBlock Text="Lawrence Adrian De Guzman"
-                                       Foreground="Black"
-                                       FontSize="12"/>
+									   Foreground="White"
+									   FontSize="12"/>
 						</StackPanel>
 					</StackPanel>
 
@@ -135,5 +133,45 @@
 			</Grid>
 
 		</Border>
+		<!-- MAIN CONTENT AREA -->
+		<Grid Grid.Row="1" Grid.Column="1" Margin="20">
+			<!-- Horizontal StackPanel for 3 grids -->
+			<StackPanel	VerticalAlignment="Top"	HorizontalAlignment="Left"	Spacing="10">
+
+				<!-- Total Subscribers -->
+				<Border Width="281" Height="135"	Background="#ECF9FB"	CornerRadius="10">
+					<Grid>
+						<TextBlock Text="Total Subscribers" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+					</Grid>
+				</Border>
+
+				<!-- New Subscribers this Month -->
+				<Border Width="281" Height="135"
+						Background="#ECF9FB"
+						CornerRadius="10">
+					<Grid>
+						<TextBlock Text="New Subscribers"
+								   VerticalAlignment="Center"
+								   HorizontalAlignment="Center"
+								   FontWeight="Bold"/>
+					</Grid>
+				</Border>
+
+				<!-- Overdue Payments -->
+				<Border Width="281" Height="135"
+						Background="#ECF9FB"
+						CornerRadius="10">
+					<Grid>
+						<TextBlock Text="Overdue Payments"
+								   VerticalAlignment="Center"
+								   HorizontalAlignment="Center"
+								   FontWeight="Bold"/>
+					</Grid>
+				</Border>
+
+			</StackPanel>
+		</Grid>
+
+
 	</Grid>
 </Window>
