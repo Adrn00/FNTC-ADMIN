@@ -1,36 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Remove="Assets\Fonts\Phosphor-Fill.ttf" />
-    <None Remove="Assets\Fonts\Phosphor.ttf" />
-    <None Remove="Assets\Images\bgp.png" />
-    <None Remove="Assets\Images\logo.png" />
-    <None Remove="Assets\Images\logo1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\Fonts\Phosphor-Fill.ttf" />
-    <AvaloniaResource Include="Assets\Fonts\Phosphor.ttf" />
-    <AvaloniaResource Include="Assets\Images\bgp.png" />
-    <AvaloniaResource Include="Assets\Images\logo.png" />
-    <AvaloniaResource Include="Assets\Images\logo1.png" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.3.4" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.4" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.4" />
-    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.4">
-      <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
-      <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Assets\Fonts\Phosphor-Fill.ttf" />
+		<None Remove="Assets\Fonts\Phosphor.ttf" />
+		<None Remove="Assets\Images\bgp.png" />
+		<None Remove="Assets\Images\logo.png" />
+		<None Remove="Assets\Images\logo1.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\Fonts\Phosphor-Fill.ttf" />
+		<AvaloniaResource Include="Assets\Fonts\Phosphor.ttf" />
+		<AvaloniaResource Include="Assets\Images\bgp.png" />
+		<AvaloniaResource Include="Assets\Images\logo.png" />
+		<AvaloniaResource Include="Assets\Images\logo1.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Avalonia" Version="11.3.4" />
+		<PackageReference Include="Avalonia.Desktop" Version="11.3.4" />
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.4" />
+		<PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.4" />
+		<PackageReference Include="Avalonia.Diagnostics" Version="11.3.4">
+			<IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+			<PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="LiveChartsCore.SkiaSharpView.Avalonia" Version="2.0.0-rc6.1" />
+	</ItemGroup>
+
 </Project>
