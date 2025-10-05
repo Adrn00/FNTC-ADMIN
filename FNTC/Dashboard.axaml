@@ -2,9 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
-		 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+		xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-
         x:Class="FNTC.Dashboard"
         Title="Dashboard">
 
@@ -162,7 +161,6 @@
 
 			</StackPanel>
 
-			<!-- Monthly Subscription by Plan -->
 			<!-- Monthly Subscription by Plan -->
 			<Border Classes="DashboardChartCard">
 				<Grid RowDefinitions="Auto,*">
@@ -379,6 +377,56 @@
 						</StackPanel>
 					</Grid>
 				</Grid>
+			</Border>
+
+			<!-- Subscription Donut Chart -->
+			<Border Classes="SubscriptionCard">
+				<StackPanel>
+					<!-- Header -->
+					<TextBlock Classes="CardHeader" Text="Subscription Distribution"/>
+
+					<!-- Donut Chart -->
+					<Grid Width="200" Height="200" HorizontalAlignment="Center">
+						<Canvas>
+							<!-- Donut slices -->
+							<Path Fill="#02131A" Data="M100,100 L100,0 A100,100 0 0,1 195.11,69.10 L147.55,84.55 A50,50 0 0,0 100,50 Z"/>
+							<Path Fill="#094C66" Data="M100,100 L195.11,69.10 A100,100 0 0,1 160.45,193.53 L130.22,146.77 A50,50 0 0,0 100,50 Z"/>
+							<Path Fill="#435E61" Data="M100,100 L160.45,193.53 A100,100 0 0,1 39.55,193.53 L69.78,146.77 A50,50 0 0,0 100,50 Z"/>
+							<Path Fill="#13A4FF" Data="M100,100 L39.55,193.53 A100,100 0 0,1 4.89,69.10 L52.45,84.55 A50,50 0 0,0 100,50 Z"/>
+							<Path Fill="#74D6FD" Data="M100,100 L4.89,69.10 A100,100 0 0,1 100,0 L100,50 A50,50 0 0,0 100,50 Z"/>
+
+							<!-- Inner circle for donut -->
+							<Ellipse Width="120" Height="120" Fill="White" Canvas.Left="40" Canvas.Top="40"/>
+						</Canvas>
+
+						<!-- Center total -->
+						<TextBlock Classes="DonutCenterText" Text="500 Subscribers"/>
+					</Grid>
+
+					<!-- Legend -->
+					<StackPanel Classes="DonutLegend">
+						<StackPanel Classes="LegendItem">
+							<Rectangle Classes="LegendColor" Fill="#02131A"/>
+							<TextBlock Text="BRONZE"/>
+						</StackPanel>
+						<StackPanel Classes="LegendItem">
+							<Rectangle Classes="LegendColor" Fill="#094C66"/>
+							<TextBlock Text="SILVER"/>
+						</StackPanel>
+						<StackPanel Classes="LegendItem">
+							<Rectangle Classes="LegendColor" Fill="#435E61"/>
+							<TextBlock Text="GOLD"/>
+						</StackPanel>
+						<StackPanel Classes="LegendItem">
+							<Rectangle Classes="LegendColor" Fill="#13A4FF"/>
+							<TextBlock Text="DIAMOND"/>
+						</StackPanel>
+						<StackPanel Classes="LegendItem">
+							<Rectangle Classes="LegendColor" Fill="#74D6FD"/>
+							<TextBlock Text="PLATINUM"/>
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
 			</Border>
 
 		</Grid>
