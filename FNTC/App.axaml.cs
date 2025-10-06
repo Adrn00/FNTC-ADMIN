@@ -1,6 +1,7 @@
-using Avalonia;
+﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using FNTC.ViewModels;  // ✅ Make sure this using is here
 
 namespace FNTC
 {
@@ -15,7 +16,11 @@ namespace FNTC
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new Dashboard();
+                // ✅ Correct way to set DataContext
+                desktop.MainWindow = new MainViewww
+                {
+                    DataContext = new MainViewwwModel()
+                };
             }
 
             base.OnFrameworkInitializationCompleted();

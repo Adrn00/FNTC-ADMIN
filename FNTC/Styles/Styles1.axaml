@@ -1,17 +1,441 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia">
-	    
-
 
 	<Design.PreviewWith>
+		<Grid Classes="BGP" ColumnDefinitions="300, *" RowDefinitions="Auto, *" Width="1920" Height="1080">
+
+			<!--SIDEBAR -->
+			<Border Classes="Sidebar" >
+				<!--SIDEBAR GRID-->
+				<Grid RowDefinitions="*, Auto" Background="#F2F2F2">
+					<!--SIDEBAR CONTENT-->
+					<StackPanel Classes="SidebarContent" >
+						<!--SIDEBAR LOGO-->
+						<Image Source="avares://FNTC/Assets/Images/logo.png" Classes="Logo"/>
+
+						<!-- MAIN MENU-->
+						<StackPanel Spacing="20">
+							<TextBlock Classes="sidebartext" Text="MAIN MENU" />
+
+							<Button Classes="SidebarBT">
+								<StackPanel Orientation="Horizontal">
+									<Label Classes="icon" Content="&#xe464;"/>
+									<Label Classes="fontbt"	Content="Dashboard"/>
+								</StackPanel>
+							</Button>
+
+							<Button Classes="SidebarBT" >
+								<StackPanel Orientation="Horizontal">
+									<Label Classes="icon" Content="&#xe2f8;"/>
+									<Label Classes="fontbt"	Content="Subscription Management"/>
+								</StackPanel>
+							</Button>
+
+							<Button Classes="SidebarBT">
+								<StackPanel Orientation="Horizontal">
+									<Label Classes="icon" Content="&#xee42;"/>
+									<Label Classes="fontbt"	Content="Billing and Invoice"/>
+								</StackPanel>
+							</Button>
+
+							<Button Classes="SidebarBT" >
+								<StackPanel Orientation="Horizontal">
+									<Label Classes="icon" Content="&#xe68e;"/>
+									<Label Classes="fontbt"	Content="Job Order"/>
+								</StackPanel>
+							</Button>
+						</StackPanel>
+
+						<!-- Divider line -->
+						<Border Height="1" Background="#CCC" Margin="0,10" Width="203"/>
+
+						<!-- GENERAL-->
+						<StackPanel Spacing="20">
+							<TextBlock Classes="sidebartext" Text="GENERAL" />
+							<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
+								<StackPanel Orientation="Horizontal">
+									<Label Classes="icon" Content="&#xe3e8;"/>
+									<Label Classes="fontbt"	Content="Support Service"/>
+								</StackPanel>
+							</Button>
+
+							<Button Classes="SidebarBT" HorizontalAlignment="Stretch">
+								<StackPanel Orientation="Horizontal">
+									<Label Classes="icon" Content="&#xe270;"/>
+									<Label Classes="fontbt"	Content="Settings"/>
+								</StackPanel>
+							</Button>
+						</StackPanel>
+					</StackPanel>
+
+
+					<!-- LOGOUT -->
+					<Button Classes="SidebarBT" Grid.Row="1" Margin="15,0,0,15">
+						<StackPanel Orientation="Horizontal">
+							<Label Classes="icon" Content="&#xe42a;"/>
+							<Label Classes="fontbt"	Content="Log Out"/>
+						</StackPanel>
+					</Button>
+				</Grid>
+			</Border>
+
+			<!-- HEADER BAR-->
+			<Border  Classes="Headerbar">
+				<Grid ColumnDefinitions="*, Auto" VerticalAlignment="Center">
+
+					<!-- DASHBOARD PANEL -->
+					<StackPanel Classes="HeaderPanel">
+						<!-- DASHBOARD TEXT-->
+						<TextBlock Text="DASHBOARD" Classes="headertext"/>
+
+						<TextBlock Text="Here’s a quick overview of Active subscriptions." Classes="subheadertext"/>
+					</StackPanel>
+					<!-- NOTIFICATION AND PROFILE PANEL -->
+					<StackPanel Classes="NotificationProfilePanel">
+
+						<!-- Notification Bell -->
+						<Label Classes="notificationbell"
+							   Content="&#xe5e8;"/>
+
+						<!-- Profile Section -->
+						<StackPanel Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+
+							<!-- Profile Circle -->
+							<Border Width="40" Height="40"
+									Background="White"
+									CornerRadius="20"
+									VerticalAlignment="Center">
+								<TextBlock Text="A"
+										   HorizontalAlignment="Center"
+										   VerticalAlignment="Center"
+										   FontWeight="Bold"
+										   Foreground="Black"/>
+							</Border>
+
+							<!-- Profile Info -->
+							<StackPanel>
+								<TextBlock Text="Admin"
+										   Foreground="White"
+										   FontWeight="Bold"/>
+								<TextBlock Text="Lawrence Adrian De Guzman"
+										   Foreground="White"
+										   FontSize="12"/>
+							</StackPanel>
+						</StackPanel>
+
+					</StackPanel>
+				</Grid>
+
+			</Border>
+
+			<!-- DASBOARD CONTENTS -->
+			<Grid Grid.Row="1" Grid.Column="1" Margin="20">
+				<!-- Horizontal StackPanel for 3 cards -->
+				<StackPanel Classes="CardStack">
+
+					<!-- Total Subscribers -->
+					<Border Classes="DashboardCard">
+						<Grid>
+							<TextBlock Text="Total Subscribers" Classes="CardTitle"/>
+						</Grid>
+					</Border>
+
+					<!-- New Subscribers -->
+					<Border Classes="DashboardCard">
+						<Grid>
+							<TextBlock Text="New Subscribers" Classes="CardTitle"/>
+						</Grid>
+					</Border>
+
+					<!-- Overdue Payments -->
+					<Border Classes="DashboardCard">
+						<Grid>
+							<TextBlock Text="Overdue Payments" Classes="CardTitle"/>
+						</Grid>
+					</Border>
+
+				</StackPanel>
+
+				<!-- Monthly Subscription by Plan -->
+				<Border Classes="DashboardChartCard">
+					<Grid RowDefinitions="Auto,*">
+
+						<!-- Header -->
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8" Margin="10">
+							<Label Classes="chartIcon" Content="&#xe150;"/>
+							<TextBlock Text="Monthly Subscription by Plan" Classes="ChartTitle"/>
+						</StackPanel>
+
+						<!-- Chart Area -->
+						<Grid Grid.Row="1" Margin="40,10,20,40">
+
+							<!-- Y-Axis Labels -->
+							<StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Left" Margin="-35,0,0,0" Spacing="20">
+								<TextBlock Text="50" Classes="YAxisLabel"/>
+								<TextBlock Text="40" Classes="YAxisLabel"/>
+								<TextBlock Text="30" Classes="YAxisLabel"/>
+								<TextBlock Text="20" Classes="YAxisLabel"/>
+								<TextBlock Text="10" Classes="YAxisLabel"/>
+								<TextBlock Text="0"  Classes="YAxisLabel"/>
+							</StackPanel>
+
+							<!-- Bars + Months -->
+							<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Spacing="25">
+
+								<!-- FEB -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="120" Fill="#02131A"/>
+										<!-- Bronze = 20 -->
+										<Rectangle Width="12" Height="180" Fill="#094C66"/>
+										<!-- Silver = 30 -->
+										<Rectangle Width="12" Height="240" Fill="#435E61"/>
+										<!-- Gold = 40 -->
+										<Rectangle Width="12" Height="300" Fill="#13A4FF"/>
+										<!-- Diamond = 50 -->
+										<Rectangle Width="12" Height="60"  Fill="#63D3FF"/>
+										<!-- Platinum = 10 -->
+									</StackPanel>
+									<TextBlock Text="Feb" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- MAR -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="60"  Fill="#02131A"/>
+										<!-- Bronze = 10 -->
+										<Rectangle Width="12" Height="150" Fill="#094C66"/>
+										<!-- Silver = 25 -->
+										<Rectangle Width="12" Height="210" Fill="#435E61"/>
+										<!-- Gold = 35 -->
+										<Rectangle Width="12" Height="270" Fill="#13A4FF"/>
+										<!-- Diamond = 45 -->
+										<Rectangle Width="12" Height="90"  Fill="#63D3FF"/>
+										<!-- Platinum = 15 -->
+									</StackPanel>
+									<TextBlock Text="Mar" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- APR -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="90"  Fill="#02131A"/>
+										<!-- Bronze = 15 -->
+										<Rectangle Width="12" Height="210" Fill="#094C66"/>
+										<!-- Silver = 35 -->
+										<Rectangle Width="12" Height="120" Fill="#435E61"/>
+										<!-- Gold = 20 -->
+										<Rectangle Width="12" Height="300" Fill="#13A4FF"/>
+										<!-- Diamond = 50 -->
+										<Rectangle Width="12" Height="180" Fill="#63D3FF"/>
+										<!-- Platinum = 30 -->
+									</StackPanel>
+									<TextBlock Text="Apr" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- MAY -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="240" Fill="#02131A"/>
+										<!-- Bronze = 40 -->
+										<Rectangle Width="12" Height="300" Fill="#094C66"/>
+										<!-- Silver = 50 -->
+										<Rectangle Width="12" Height="60"  Fill="#435E61"/>
+										<!-- Gold = 10 -->
+										<Rectangle Width="12" Height="120" Fill="#13A4FF"/>
+										<!-- Diamond = 20 -->
+										<Rectangle Width="12" Height="180" Fill="#63D3FF"/>
+										<!-- Platinum = 30 -->
+									</StackPanel>
+									<TextBlock Text="May" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- JUN -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="60"  Fill="#02131A"/>
+										<!-- Bronze = 10 -->
+										<Rectangle Width="12" Height="120" Fill="#094C66"/>
+										<!-- Silver = 20 -->
+										<Rectangle Width="12" Height="300" Fill="#435E61"/>
+										<!-- Gold = 50 -->
+										<Rectangle Width="12" Height="180" Fill="#13A4FF"/>
+										<!-- Diamond = 30 -->
+										<Rectangle Width="12" Height="240" Fill="#63D3FF"/>
+										<!-- Platinum = 40 -->
+									</StackPanel>
+									<TextBlock Text="Jun" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- JUL -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="300" Fill="#02131A"/>
+										<!-- Bronze = 50 -->
+										<Rectangle Width="12" Height="240" Fill="#094C66"/>
+										<!-- Silver = 40 -->
+										<Rectangle Width="12" Height="180" Fill="#435E61"/>
+										<!-- Gold = 30 -->
+										<Rectangle Width="12" Height="120" Fill="#13A4FF"/>
+										<!-- Diamond = 20 -->
+										<Rectangle Width="12" Height="60"  Fill="#63D3FF"/>
+										<!-- Platinum = 10 -->
+									</StackPanel>
+									<TextBlock Text="Jul" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- AUG -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="90"  Fill="#02131A"/>
+										<!-- Bronze = 15 -->
+										<Rectangle Width="12" Height="150" Fill="#094C66"/>
+										<!-- Silver = 25 -->
+										<Rectangle Width="12" Height="210" Fill="#435E61"/>
+										<!-- Gold = 35 -->
+										<Rectangle Width="12" Height="270" Fill="#13A4FF"/>
+										<!-- Diamond = 45 -->
+										<Rectangle Width="12" Height="300" Fill="#63D3FF"/>
+										<!-- Platinum = 50 -->
+									</StackPanel>
+									<TextBlock Text="Aug" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- SEP -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="180" Fill="#02131A"/>
+										<!-- Bronze = 30 -->
+										<Rectangle Width="12" Height="240" Fill="#094C66"/>
+										<!-- Silver = 40 -->
+										<Rectangle Width="12" Height="300" Fill="#435E61"/>
+										<!-- Gold = 50 -->
+										<Rectangle Width="12" Height="120" Fill="#13A4FF"/>
+										<!-- Diamond = 20 -->
+										<Rectangle Width="12" Height="60"  Fill="#63D3FF"/>
+										<!-- Platinum = 10 -->
+									</StackPanel>
+									<TextBlock Text="Sep" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- OCT -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="60"  Fill="#02131A"/>
+										<!-- Bronze = 10 -->
+										<Rectangle Width="12" Height="300" Fill="#094C66"/>
+										<!-- Silver = 50 -->
+										<Rectangle Width="12" Height="240" Fill="#435E61"/>
+										<!-- Gold = 40 -->
+										<Rectangle Width="12" Height="180" Fill="#13A4FF"/>
+										<!-- Diamond = 30 -->
+										<Rectangle Width="12" Height="120" Fill="#63D3FF"/>
+										<!-- Platinum = 20 -->
+									</StackPanel>
+									<TextBlock Text="Oct" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- NOV -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="300" Fill="#02131A"/>
+										<!-- Bronze = 50 -->
+										<Rectangle Width="12" Height="90"  Fill="#094C66"/>
+										<!-- Silver = 15 -->
+										<Rectangle Width="12" Height="150" Fill="#435E61"/>
+										<!-- Gold = 25 -->
+										<Rectangle Width="12" Height="210" Fill="#13A4FF"/>
+										<!-- Diamond = 35 -->
+										<Rectangle Width="12" Height="270" Fill="#63D3FF"/>
+										<!-- Platinum = 45 -->
+									</StackPanel>
+									<TextBlock Text="Nov" Classes="XAxisLabel"/>
+								</StackPanel>
+
+								<!-- DEC -->
+								<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+									<StackPanel Orientation="Horizontal" Spacing="4" VerticalAlignment="Bottom">
+										<Rectangle Width="12" Height="150" Fill="#02131A"/>
+										<!-- Bronze = 25 -->
+										<Rectangle Width="12" Height="210" Fill="#094C66"/>
+										<!-- Silver = 35 -->
+										<Rectangle Width="12" Height="270" Fill="#435E61"/>
+										<!-- Gold = 45 -->
+										<Rectangle Width="12" Height="300" Fill="#13A4FF"/>
+										<!-- Diamond = 50 -->
+										<Rectangle Width="12" Height="60"  Fill="#63D3FF"/>
+										<!-- Platinum = 10 -->
+									</StackPanel>
+									<TextBlock Text="Dec" Classes="XAxisLabel"/>
+								</StackPanel>
+
+							</StackPanel>
+						</Grid>
+					</Grid>
+				</Border>
+
+				<!-- Subscription Donut Chart -->
+				<Border Classes="SubscriptionCard">
+					<StackPanel>
+						<!-- Header -->
+						<TextBlock Classes="CardHeader" Text="Subscription Distribution"/>
+
+						<!-- Donut Chart -->
+						<Grid Width="200" Height="200" HorizontalAlignment="Center">
+							<Canvas>
+								<!-- Donut slices -->
+								<Path Fill="#02131A" Data="M100,100 L100,0 A100,100 0 0,1 195.11,69.10 L147.55,84.55 A50,50 0 0,0 100,50 Z"/>
+								<Path Fill="#094C66" Data="M100,100 L195.11,69.10 A100,100 0 0,1 160.45,193.53 L130.22,146.77 A50,50 0 0,0 100,50 Z"/>
+								<Path Fill="#435E61" Data="M100,100 L160.45,193.53 A100,100 0 0,1 39.55,193.53 L69.78,146.77 A50,50 0 0,0 100,50 Z"/>
+								<Path Fill="#13A4FF" Data="M100,100 L39.55,193.53 A100,100 0 0,1 4.89,69.10 L52.45,84.55 A50,50 0 0,0 100,50 Z"/>
+								<Path Fill="#74D6FD" Data="M100,100 L4.89,69.10 A100,100 0 0,1 100,0 L100,50 A50,50 0 0,0 100,50 Z"/>
+
+								<!-- Inner circle for donut -->
+								<Ellipse Width="120" Height="120" Fill="White" Canvas.Left="40" Canvas.Top="40"/>
+							</Canvas>
+
+							<!-- Center total -->
+							<TextBlock Classes="DonutCenterText" Text="500 Subscribers"/>
+						</Grid>
+
+						<!-- Legend -->
+						<StackPanel Classes="DonutLegend">
+							<StackPanel Classes="LegendItem">
+								<Rectangle Classes="LegendColor" Fill="#02131A"/>
+								<TextBlock Text="BRONZE"/>
+							</StackPanel>
+							<StackPanel Classes="LegendItem">
+								<Rectangle Classes="LegendColor" Fill="#094C66"/>
+								<TextBlock Text="SILVER"/>
+							</StackPanel>
+							<StackPanel Classes="LegendItem">
+								<Rectangle Classes="LegendColor" Fill="#435E61"/>
+								<TextBlock Text="GOLD"/>
+							</StackPanel>
+							<StackPanel Classes="LegendItem">
+								<Rectangle Classes="LegendColor" Fill="#13A4FF"/>
+								<TextBlock Text="DIAMOND"/>
+							</StackPanel>
+							<StackPanel Classes="LegendItem">
+								<Rectangle Classes="LegendColor" Fill="#74D6FD"/>
+								<TextBlock Text="PLATINUM"/>
+							</StackPanel>
+						</StackPanel>
+					</StackPanel>
+				</Border>
+
+			</Grid>
+
+
+		</Grid>
 		
 	</Design.PreviewWith>
 
 	<!--  Styles -->
 	<!--BGP-->
 	<Style Selector="Grid.BGP">
-		<Setter Property="Background" Value="#2A595F"></Setter>
+		<Setter Property="Background" Value="#07B2C6"></Setter>
 	</Style>
 	
 	<!--SIDEBAR BORDER-->
@@ -90,7 +514,7 @@
 	<Style Selector="Border.Headerbar">
 		<Setter Property="Grid.Row" Value="0"></Setter>
 		<Setter Property="Grid.Column" Value="1"></Setter>
-		<Setter Property="Background" Value="#2A595F"></Setter>
+		<Setter Property="Background" Value="#07B2C6"></Setter>
 		<Setter Property="Padding" Value="25"></Setter>
 		
 	</Style>

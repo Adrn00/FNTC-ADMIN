@@ -1,10 +1,11 @@
 using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
 
 namespace FNTC
 {
-    public partial class MainWindow : Window
+    public partial class MainViewww : Window
     {
-        public MainWindow()
+        public MainViewww()
         {
             InitializeComponent();
         }

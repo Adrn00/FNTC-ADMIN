@@ -1,11 +1,16 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
-		xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
-        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
-        x:Class="FNTC.Dashboard"
-        Title="Dashboard">
+<Window xmlns="https://github.com/avaloniaui" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080" 
+		x:Class="FNTC.MainViewww" 
+		xmlns:vm="clr-namespace:FNTC.ViewModels" 
+		x:DataType="vm:MainViewwwModel" 
+		Title="MainViewww">
+
+	<Design.DataContext>
+		<vm:MainViewwwModel />
+	</Design.DataContext>
 
 	<Grid Classes="BGP" ColumnDefinitions="300, *" RowDefinitions="Auto, *">
 
@@ -25,7 +30,8 @@
 						<Button Classes="SidebarBT">
 							<StackPanel Orientation="Horizontal">
 								<Label Classes="icon" Content="&#xe464;"/>
-								<Label Classes="fontbt"	Content="Dashboard"/>
+								<Label Classes="fontbt" Content="{Binding Test}"/>
+
 							</StackPanel>
 						</Button>
 

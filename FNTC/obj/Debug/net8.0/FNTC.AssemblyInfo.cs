@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FNTC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ddc250f1343ae266c4600db2d7444d7ae2a7208")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c5b23d2438cce82158b7aa7a3deb59cec069ba3e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FNTC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FNTC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
